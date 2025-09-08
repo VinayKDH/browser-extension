@@ -42,7 +42,7 @@ Creating new sidebar
 
 ### **Step 2: Check Extension Console**
 1. **Go to** `chrome://extensions/`
-2. **Find "AIML Gyan Launcher"**
+2. **Find "Tens AI Launcher"**
 3. **Click "Inspect views: service worker"**
 4. **Check console for background script logs**
 
@@ -59,7 +59,7 @@ Creating new sidebar
 
 #### **Check 1: Extension Permissions**
 - Go to `chrome://extensions/`
-- Find "AIML Gyan Launcher"
+- Find "Tens AI Launcher"
 - Ensure it's **enabled**
 - Check if any permissions are blocked
 
@@ -96,7 +96,7 @@ Creating new sidebar
 4. **If this works, the content script is fine**
 
 ### **Test 2: Floating Button**
-1. **Look for floating "AIML Gyan" button** (bottom-right)
+1. **Look for floating "Tens AI" button** (bottom-right)
 2. **Right-click the button**
 3. **Sidebar should appear**
 4. **If this works, the content script is fine**
@@ -110,7 +110,7 @@ Creating new sidebar
 
 ### **Fix 1: Reload Extension**
 1. Go to `chrome://extensions/`
-2. Find "AIML Gyan Launcher"
+2. Find "Tens AI Launcher"
 3. Click the **reload button** (🔄)
 4. Try clicking the icon again
 

@@ -1,4 +1,4 @@
-const PROD_URL = 'https://www.aimlgyan.com/';
+const PROD_URL = 'https://dev2.tens-ai.com/';
 const TEST_URL = chrome.runtime.getURL('test/test.html');
 
 async function getOrCreateTensTab(url = PROD_URL) {
@@ -100,12 +100,12 @@ async function openInNewTab(url, service) {
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: 'tens-open',
-    title: 'Open AIML Gyan',
+    title: 'Open Tens AI',
     contexts: ['action']
   });
   chrome.contextMenus.create({
     id: 'tens-search-selection',
-    title: 'Search in AIML Gyan: "%s"',
+    title: 'Search in Tens AI: "%s"',
     contexts: ['selection']
   });
 });

@@ -9,7 +9,7 @@ Successfully implemented extension icon click behavior to open the sidebar direc
 ### **1. Updated manifest.json**
 ```json
 "action": {
-  "default_title": "AIML Gyan - Click to open sidebar"
+  "default_title": "Tens AI - Click to open sidebar"
 }
 ```
 - **Removed**: `default_popup` property (no longer needed)
@@ -67,7 +67,7 @@ Sidebar appears on current page
 ## 🔄 **Multiple Ways to Open Sidebar**
 
 ### **1. Extension Icon Click** ⭐ **NEW**
-- Click the AIML Gyan icon in browser toolbar
+- Click the Tens AI icon in browser toolbar
 - Most intuitive and discoverable method
 
 ### **2. Keyboard Shortcut**
@@ -76,7 +76,7 @@ Sidebar appears on current page
 - Quick access for power users
 
 ### **3. Context Menu**
-- Right-click on page → "Open AIML Gyan"
+- Right-click on page → "Open Tens AI"
 - Alternative access method
 
 ### **4. Floating Button**
@@ -86,7 +86,7 @@ Sidebar appears on current page
 ## 🧪 **Testing Results**
 
 ```
-🧪 Running Node.js validation tests for AIML Gyan Extension
+🧪 Running Node.js validation tests for Tens AI Extension
 ============================================================
 ✅ File Structure: PASSED
 ✅ Manifest Validation: PASSED
@@ -100,8 +100,8 @@ Success Rate: 100.0%
 ## 🎨 **Visual Behavior**
 
 ### **Extension Icon States**
-- **Normal**: Shows AIML Gyan icon in toolbar
-- **Hover**: Displays tooltip "AIML Gyan - Click to open sidebar"
+- **Normal**: Shows Tens AI icon in toolbar
+- **Hover**: Displays tooltip "Tens AI - Click to open sidebar"
 - **Click**: Sidebar slides in from right side of page
 - **Active**: Sidebar remains open until closed or icon clicked again
 
@@ -175,7 +175,7 @@ Success Rate: 100.0%
 
 ## 🎉 **Ready to Use!**
 
-The extension icon now provides **one-click access** to the full AIML Gyan sidebar with all 6 services. Users can simply click the extension icon in their browser toolbar to open the sidebar and access:
+The extension icon now provides **one-click access** to the full Tens AI sidebar with all 6 services. Users can simply click the extension icon in their browser toolbar to open the sidebar and access:
 
 - **WebGPT** and **Business Application** (browser view)
 - **Translator**, **OmniQuest**, **MediaStudio**, and **Summarizer** (separate tabs)

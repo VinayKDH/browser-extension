@@ -1,4 +1,4 @@
-# 🧪 Local Testing Guide for AIML Gyan Extension
+# 🧪 Local Testing Guide for Tens AI Extension
 
 ## 🚀 **Extension Loaded Successfully!**
 
@@ -9,13 +9,13 @@ The extension has been loaded in Chrome and test pages are open. Here's how to t
 ### **✅ Step 1: Verify Extension Loaded**
 1. **Check Chrome Extensions Page**:
    - Go to `chrome://extensions/`
-   - Look for "AIML Gyan Launcher"
+   - Look for "Tens AI Launcher"
    - Ensure it's **enabled** (toggle should be blue)
    - Check for any error messages
 
 2. **Check Extension Icon**:
-   - Look for the AIML Gyan icon in the Chrome toolbar
-   - Hover over it to see tooltip: "AIML Gyan - Click to open sidebar"
+   - Look for the Tens AI icon in the Chrome toolbar
+   - Hover over it to see tooltip: "Tens AI - Click to open sidebar"
 
 ### **✅ Step 2: Test Extension Icon Click**
 1. **Click the extension icon** in the toolbar
@@ -46,16 +46,16 @@ When sidebar is open, test all 6 services:
 
 #### **Keyboard Shortcuts**:
 - **Alt+Shift+S** - Toggle sidebar
-- **Alt+Shift+T** - Open main AIML Gyan
+- **Alt+Shift+T** - Open main Tens AI
 
 #### **Floating Button**:
-- Look for floating "AIML Gyan" button (bottom-right corner)
-- **Left-click** - Open main AIML Gyan
+- Look for floating "Tens AI" button (bottom-right corner)
+- **Left-click** - Open main Tens AI
 - **Right-click** - Toggle sidebar
 
 #### **Context Menu**:
-- Right-click on page → "Open AIML Gyan"
-- Select text → Right-click → "Search in AIML Gyan"
+- Right-click on page → "Open Tens AI"
+- Select text → Right-click → "Search in Tens AI"
 
 ### **✅ Step 5: Test Chat Functionality**
 1. **Open sidebar**
@@ -115,8 +115,8 @@ Sidebar appended to document, sidebarInstance set
 
 ### **Expected Service Click Logs**:
 ```
-Content script received message: {type: "OPEN_IN_BROWSER_VIEW", service: "webgpt", url: "https://www.aimlgyan.com/webgpt"}
-Opening browser view: https://www.aimlgyan.com/webgpt
+Content script received message: {type: "OPEN_IN_BROWSER_VIEW", service: "webgpt", url: "https://dev2.tens-ai.com/webgpt"}
+Opening browser view: https://dev2.tens-ai.com/webgpt
 ```
 
 ## 🚨 **Troubleshooting**

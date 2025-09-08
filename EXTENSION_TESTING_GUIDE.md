@@ -72,7 +72,7 @@ Sidebar appended to document, sidebarInstance set
 - **If this works, content script is fine**
 
 #### **Test 2: Floating Button**
-- **Look for floating "AIML Gyan" button** (bottom-right corner)
+- **Look for floating "Tens AI" button** (bottom-right corner)
 - **Right-click the button**
 - **Should see sidebar appear**
 
@@ -88,7 +88,7 @@ Sidebar appended to document, sidebarInstance set
 
 #### **Check 1: Extension Status**
 - Go to `chrome://extensions/`
-- Find "AIML Gyan Launcher"
+- Find "Tens AI Launcher"
 - Ensure it's **enabled**
 - Check for any error messages
 
@@ -124,7 +124,7 @@ Sidebar appended to document, sidebarInstance set
 
 ### **Fix 1: Reload Extension**
 1. Go to `chrome://extensions/`
-2. Find "AIML Gyan Launcher"
+2. Find "Tens AI Launcher"
 3. Click the **reload button** (🔄)
 4. Try clicking the icon again
 

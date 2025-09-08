@@ -9,37 +9,37 @@ Successfully implemented a comprehensive sidebar with 6 core functionalities bas
 ### **1. 🤖 WebGPT**
 - **Function**: AI-powered web search and chat
 - **Opening Behavior**: **Browser View** (iframe overlay)
-- **URL**: `https://www.aimlgyan.com/webgpt`
+- **URL**: `https://dev2.tens-ai.com/webgpt`
 - **Description**: Advanced AI chat and web search capabilities
 
 ### **2. 💼 Business Application**
 - **Function**: Professional business tools and solutions
 - **Opening Behavior**: **Browser View** (iframe overlay)
-- **URL**: `https://www.aimlgyan.com/business`
+- **URL**: `https://dev2.tens-ai.com/business`
 - **Description**: Comprehensive business productivity tools
 
 ### **3. 🌐 Translator**
 - **Function**: Multi-language translation service
 - **Opening Behavior**: **Separate Tab**
-- **URL**: `https://www.aimlgyan.com/translator`
+- **URL**: `https://dev2.tens-ai.com/translator`
 - **Description**: Advanced translation with multiple language support
 
 ### **4. 🔍 OmniQuest**
 - **Function**: Advanced search and discovery
 - **Opening Behavior**: **Separate Tab**
-- **URL**: `https://www.aimlgyan.com/omniquest`
+- **URL**: `https://dev2.tens-ai.com/omniquest`
 - **Description**: Powerful search engine with discovery features
 
 ### **5. 🎨 MediaStudio**
 - **Function**: Create and edit media content
 - **Opening Behavior**: **Separate Tab**
-- **URL**: `https://www.aimlgyan.com/mediastudio`
+- **URL**: `https://dev2.tens-ai.com/mediastudio`
 - **Description**: Professional media creation and editing tools
 
 ### **6. 📝 Summarizer**
 - **Function**: AI-powered content summarization
 - **Opening Behavior**: **Separate Tab**
-- **URL**: `https://www.aimlgyan.com/summarizer`
+- **URL**: `https://dev2.tens-ai.com/summarizer`
 - **Description**: Intelligent content summarization using AI
 
 ## 🔧 **Technical Implementation**
@@ -113,7 +113,7 @@ Browser View ← Iframe Creation ← Browser View ← New Tab
 ## 🧪 **Testing Results**
 
 ```
-🧪 Running Node.js validation tests for AIML Gyan Extension
+🧪 Running Node.js validation tests for Tens AI Extension
 ============================================================
 ✅ File Structure: PASSED
 ✅ Manifest Validation: PASSED
@@ -139,8 +139,7 @@ Success Rate: 100.0%
 ## 🔒 **Security & Permissions**
 
 ### **Updated Permissions**
-- `https://www.aimlgyan.com/*` - Main domain access
-- `https://aimlgyan.com/*` - Alternative domain access
+- `https://dev2.tens-ai.com/*` - Main domain access
 - `tabs` - Tab management for new tab opening
 - `storage` - User preferences and chat history
 - `contextMenus` - Right-click menu options

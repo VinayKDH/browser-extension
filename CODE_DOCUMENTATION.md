@@ -1,8 +1,8 @@
-# 📚 AIML Gyan Browser Extension - Code Documentation
+# 📚 Tens AI Browser Extension - Code Documentation
 
 ## 🏗️ **Architecture Overview**
 
-The AIML Gyan browser extension is built using Manifest V3 architecture with a modular design that separates concerns across different components. The extension provides quick access to AIML Gyan services through multiple interfaces: popup, content script injection, and a new sidebar interface.
+The Tens AI browser extension is built using Manifest V3 architecture with a modular design that separates concerns across different components. The extension provides quick access to Tens AI services through multiple interfaces: popup, content script injection, and a new sidebar interface.
 
 ```
 Extension Architecture:
@@ -23,10 +23,10 @@ Extension Architecture:
 ```json
 {
   "manifest_version": 3,
-  "name": "AIML Gyan Launcher",
+  "name": "Tens AI Launcher",
   "version": "1.0.0",
   "permissions": ["tabs", "storage", "contextMenus"],
-  "host_permissions": ["https://www.aimlgyan.com/*"],
+  "host_permissions": ["https://dev2.tens-ai.com/*"],
   "commands": {
     "open-or-focus-tens": "Alt+Shift+T",
     "toggle-sidebar": "Alt+Shift+S"
@@ -39,7 +39,7 @@ Extension Architecture:
 **Key Components**:
 - **Manifest V3**: Modern extension architecture with service workers
 - **Permissions**: Access to tabs, storage, and context menus
-- **Host Permissions**: Access to AIML Gyan domain
+- **Host Permissions**: Access to Tens AI domain
 - **Commands**: Keyboard shortcuts for quick access
 
 #### **`background.js`** - Service Worker
@@ -48,8 +48,8 @@ Extension Architecture:
 **Key Functions**:
 ```javascript
 // Core functionality
-async function getOrCreateTensTab(url) // Manages AIML Gyan tabs
-async function openWithQuery(query)    // Opens AIML Gyan with search query
+async function getOrCreateTensTab(url) // Manages Tens AI tabs
+async function openWithQuery(query)    // Opens Tens AI with search query
 async function toggleSidebar()         // Toggles sidebar visibility
 
 // Event listeners
@@ -61,7 +61,7 @@ chrome.runtime.onMessage             // Message handling
 ```
 
 **Service Worker Features**:
-- **Tab Management**: Reuses existing AIML Gyan tabs or creates new ones
+- **Tab Management**: Reuses existing Tens AI tabs or creates new ones
 - **Context Menus**: Creates right-click menu options
 - **Message Routing**: Handles communication between components
 - **Command Processing**: Processes keyboard shortcuts
@@ -83,7 +83,7 @@ function setupMessageListener()                  // Listens for messages
 ```
 
 **Content Script Features**:
-- **Floating Launcher**: Injects a floating "AIML Gyan" button on every page
+- **Floating Launcher**: Injects a floating "Tens AI" button on every page
 - **Sidebar Injection**: Creates and manages the sidebar iframe
 - **Keyboard Shortcuts**: Listens for Alt+Shift+T and Alt+Shift+S
 - **Message Handling**: Communicates with background script
@@ -94,7 +94,7 @@ function setupMessageListener()                  // Listens for messages
 **Purpose**: Quick access interface when clicking the extension icon.
 
 **Features**:
-- **Search Input**: Direct query input for AIML Gyan
+- **Search Input**: Direct query input for Tens AI
 - **Go Button**: Submits search queries
 - **Enter Key Support**: Keyboard-friendly interaction
 - **Auto-close**: Closes after action completion
@@ -116,7 +116,7 @@ class TensAISidebar {
   setupKeyboardShortcuts()            // Handle keyboard input
   
   // Action methods
-  openTensAI()                        // Launch main AIML Gyan
+  openTensAI()                        // Launch main Tens AI
   searchWithSelection()               // Search selected text
   summarizePage()                     // Generate page summary
   translatePage()                     // Translate content

@@ -1,4 +1,4 @@
-# 🎉 AIML Gyan Extension - Test Results Summary
+# 🎉 Tens AI Extension - Test Results Summary
 
 ## ✅ **ALL TESTS PASSED - 100% SUCCESS RATE**
 
@@ -21,7 +21,7 @@
 
 ### ✅ **Manifest Validation**
 - Required fields present
-- AIML Gyan references correct
+- Tens AI references correct
 - Proper permissions configured
 - Web accessible resources declared
 
@@ -41,7 +41,7 @@
 - Floating button creation
 - Keyboard shortcuts
 - Browser view integration
-- AIML Gyan branding
+- Tens AI branding
 
 ### ✅ **Background Script Features**
 - Tab management
@@ -61,7 +61,7 @@
   - 📝 Summarizer
 - Chat interface
 - Service cards
-- AIML Gyan branding
+- Tens AI branding
 
 ### ✅ **Documentation**
 - README.md
@@ -73,7 +73,7 @@
 ### ✅ **Package Configuration**
 - Name and version fields
 - Test scripts
-- AIML Gyan references
+- Tens AI references
 
 ---
 
@@ -112,7 +112,7 @@ open -a "Google Chrome" --args --load-extension="$(pwd)"
 ```
 
 ### **2. Test Extension Icon Click:**
-- Click the AIML Gyan icon in Chrome toolbar
+- Click the Tens AI icon in Chrome toolbar
 - Sidebar should slide in from the right
 - Check console for initialization logs
 
@@ -141,12 +141,12 @@ open -a "Google Chrome" --args --load-extension="$(pwd)"
 
 ### **Service Cards:**
 1. **WebGPT/Business App** → Browser view (iframe overlay)
-2. **Other Services** → New tabs with AIML Gyan URLs
+2. **Other Services** → New tabs with Tens AI URLs
 3. **Chat** → AI assistant responses
 
 ### **Keyboard Shortcuts:**
 1. **Alt+Shift+S** → Toggle sidebar
-2. **Alt+Shift+T** → Open main AIML Gyan
+2. **Alt+Shift+T** → Open main Tens AI
 
 ---
 
@@ -172,14 +172,14 @@ Sidebar appended to document, sidebarInstance set
 ### **Service Click Logs:**
 ```
 Content script received message: {type: "OPEN_IN_BROWSER_VIEW", service: "webgpt"}
-Opening browser view: https://www.aimlgyan.com/webgpt
+Opening browser view: https://dev2.tens-ai.com/webgpt
 ```
 
 ---
 
 ## 🎉 **Ready for Production!**
 
-The AIML Gyan Extension has passed all tests and is ready for use. All functionality has been verified:
+The Tens AI Extension has passed all tests and is ready for use. All functionality has been verified:
 
 - ✅ **Extension loading**
 - ✅ **Sidebar functionality**

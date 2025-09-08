@@ -1,4 +1,4 @@
-// AIML Gyan Browser Extension - Content Script
+// Tens AI Browser Extension - Content Script
 // Handles sidebar functionality and browser view integration
 (() => {
   const LAUNCHER_ID = '__tens_ai_launcher__';
@@ -12,7 +12,7 @@
     
     const btn = document.createElement('button');
     btn.id = LAUNCHER_ID;
-    btn.textContent = 'AIML Gyan';
+    btn.textContent = 'Tens AI';
     btn.style.position = 'fixed';
     btn.style.right = '16px';
     btn.style.bottom = '16px';
@@ -25,7 +25,7 @@
     btn.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
     btn.style.fontFamily = 'system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji';
     btn.style.cursor = 'pointer';
-    btn.title = 'Open AIML Gyan (Alt+Shift+T) | Sidebar (Alt+Shift+S)';
+    btn.title = 'Open Tens AI (Alt+Shift+T) | Sidebar (Alt+Shift+S)';
     
     // Add click handler for main button
     btn.addEventListener('click', () => {
