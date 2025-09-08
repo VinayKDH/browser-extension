@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Node.js Test Runner for AIML Gyan Browser Extension
+ * Node.js Test Runner for Tens AI Browser Extension
  * This script runs basic validation tests without requiring a browser
  */
 
@@ -19,7 +19,7 @@ class NodeTestRunner {
   }
 
   async runTests() {
-    console.log('🧪 Running Node.js validation tests for AIML Gyan Extension');
+    console.log('🧪 Running Node.js validation tests for Tens AI Extension');
     console.log('='.repeat(60));
 
     await this.testFileStructure();
@@ -93,12 +93,12 @@ class NodeTestRunner {
         throw new Error('Host permissions must be an array');
       }
 
-      // Verify AIML Gyan is in host permissions
-      const aimlGyanPermission = manifest.host_permissions.find(p => 
-        p.includes('aimlgyan.com') || p === '<all_urls>'
+      // Verify Tens AI is in host permissions
+      const tensAiPermission = manifest.host_permissions.find(p => 
+        p.includes('dev2.tens-ai.com') || p === '<all_urls>'
       );
-      if (!aimlGyanPermission) {
-        throw new Error('Host permissions must include aimlgyan.com or <all_urls>');
+      if (!tensAiPermission) {
+        throw new Error('Host permissions must include dev2.tens-ai.com or <all_urls>');
       }
 
       return true;

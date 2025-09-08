@@ -1,4 +1,4 @@
-// Test Suite for AIML Gyan Browser Extension
+// Test Suite for Tens AI Browser Extension
 // Tests compatibility across Safari, Chrome, and Firefox
 
 class ExtensionTestSuite {
@@ -33,7 +33,7 @@ class ExtensionTestSuite {
     await this.testKeyboardShortcuts();
     await this.testMessagePassing();
     await this.testStorageAPI();
-    await this.testAIMLGyanConnection();
+    await this.testTensAiConnection();
 
     this.printResults();
   }
@@ -67,7 +67,7 @@ class ExtensionTestSuite {
       // Check if content script has injected the launcher
       const launcher = document.getElementById('__tens_ai_launcher__');
       if (!launcher) {
-        throw new Error('AIML Gyan launcher not found in DOM');
+        throw new Error('Tens AI launcher not found in DOM');
       }
       return true;
     });
@@ -161,17 +161,17 @@ class ExtensionTestSuite {
     });
   }
 
-  async testAIMLGyanConnection() {
-    await this.runTest('AIML Gyan Connection', async () => {
+  async testTensAiConnection() {
+    await this.runTest('Tens AI Connection', async () => {
       try {
-        const response = await fetch('https://www.aimlgyan.com', {
+        const response = await fetch('https://dev2.tens-ai.com', {
           method: 'HEAD',
           mode: 'no-cors'
         });
         return true;
       } catch (error) {
         // In test environment, this might fail due to CORS
-        console.warn('AIML Gyan connection test failed (expected in test environment):', error);
+        console.warn('Tens AI connection test failed (expected in test environment):', error);
         return true;
       }
     });

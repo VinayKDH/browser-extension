@@ -48,7 +48,7 @@ class TensAISidebar {
         this.sendMessageToExtension({ 
             type: 'OPEN_IN_BROWSER_VIEW', 
             service: 'webgpt',
-            url: 'https://www.aimlgyan.com/webgpt'
+            url: 'https://dev2.tens-ai.com/webgpt'
         });
         this.addChatMessage('assistant', 'Opening WebGPT in browser view...');
     }
@@ -58,7 +58,7 @@ class TensAISidebar {
         this.sendMessageToExtension({ 
             type: 'OPEN_IN_BROWSER_VIEW', 
             service: 'business',
-            url: 'https://www.aimlgyan.com/business'
+            url: 'https://dev2.tens-ai.com/business'
         });
         this.addChatMessage('assistant', 'Opening Business Application in browser view...');
     }
@@ -68,7 +68,7 @@ class TensAISidebar {
         this.sendMessageToExtension({ 
             type: 'OPEN_IN_NEW_TAB', 
             service: 'translator',
-            url: 'https://www.aimlgyan.com/translator'
+            url: 'https://dev2.tens-ai.com/translator'
         });
         this.addChatMessage('assistant', 'Opening Translator in new tab...');
     }
@@ -78,7 +78,7 @@ class TensAISidebar {
         this.sendMessageToExtension({ 
             type: 'OPEN_IN_NEW_TAB', 
             service: 'omniquest',
-            url: 'https://www.aimlgyan.com/omniquest'
+            url: 'https://dev2.tens-ai.com/omniquest'
         });
         this.addChatMessage('assistant', 'Opening OmniQuest in new tab...');
     }
@@ -88,7 +88,7 @@ class TensAISidebar {
         this.sendMessageToExtension({ 
             type: 'OPEN_IN_NEW_TAB', 
             service: 'mediastudio',
-            url: 'https://www.aimlgyan.com/mediastudio'
+            url: 'https://dev2.tens-ai.com/mediastudio'
         });
         this.addChatMessage('assistant', 'Opening MediaStudio in new tab...');
     }
@@ -98,7 +98,7 @@ class TensAISidebar {
         this.sendMessageToExtension({ 
             type: 'OPEN_IN_NEW_TAB', 
             service: 'summarizer',
-            url: 'https://www.aimlgyan.com/summarizer'
+            url: 'https://dev2.tens-ai.com/summarizer'
         });
         this.addChatMessage('assistant', 'Opening Summarizer in new tab...');
     }
@@ -114,7 +114,7 @@ class TensAISidebar {
             this.sendMessageToExtension({ 
                 type: 'OPEN_IN_NEW_TAB', 
                 service: 'webgpt',
-                url: `https://www.aimlgyan.com/webgpt?q=${encodeURIComponent(selectedText)}`
+                url: `https://dev2.tens-ai.com/webgpt?q=${encodeURIComponent(selectedText)}`
             });
             this.addChatMessage('assistant', `Searching for: "${selectedText}"`);
         } else {
@@ -128,7 +128,7 @@ class TensAISidebar {
             this.sendMessageToExtension({ 
                 type: 'OPEN_IN_NEW_TAB', 
                 service: 'summarizer',
-                url: `https://www.aimlgyan.com/summarizer?content=${encodeURIComponent(pageContent.substring(0, 1000))}`
+                url: `https://dev2.tens-ai.com/summarizer?content=${encodeURIComponent(pageContent.substring(0, 1000))}`
             });
             this.addChatMessage('assistant', 'Opening Summarizer with page content...');
         } else {
@@ -142,7 +142,7 @@ class TensAISidebar {
             this.sendMessageToExtension({ 
                 type: 'OPEN_IN_NEW_TAB', 
                 service: 'translator',
-                url: `https://www.aimlgyan.com/translator?text=${encodeURIComponent(pageContent.substring(0, 1000))}`
+                url: `https://dev2.tens-ai.com/translator?text=${encodeURIComponent(pageContent.substring(0, 1000))}`
             });
             this.addChatMessage('assistant', 'Opening Translator with page content...');
         } else {
@@ -169,11 +169,11 @@ class TensAISidebar {
     }
 
     processMessage(message) {
-        // Simple message processing - in a real implementation, this would call AIML Gyan API
+        // Simple message processing - in a real implementation, this would call Tens AI API
         let response = '';
 
         if (message.toLowerCase().includes('hello') || message.toLowerCase().includes('hi')) {
-            response = 'Hello! How can I help you with AIML Gyan today?';
+            response = 'Hello! How can I help you with Tens AI today?';
         } else if (message.toLowerCase().includes('help')) {
             response = 'I can help you with:\n• 🤖 WebGPT - AI web search and chat\n• 💼 Business Application - Professional tools\n• 🌐 Translator - Multi-language support\n• 🔍 OmniQuest - Advanced search\n• 🎨 MediaStudio - Content creation\n• 📝 Summarizer - AI summarization';
         } else if (message.toLowerCase().includes('webgpt') || message.toLowerCase().includes('web gpt')) {
@@ -188,8 +188,8 @@ class TensAISidebar {
             response = 'MediaStudio helps you create and edit media content. Click the MediaStudio button to start creating.';
         } else if (message.toLowerCase().includes('summarize') || message.toLowerCase().includes('summary')) {
             response = 'Our Summarizer uses AI to create content summaries. Click the Summarizer button to get started.';
-        } else if (message.toLowerCase().includes('aiml gyan') || message.toLowerCase().includes('aiml')) {
-            response = 'AIML Gyan is an AI-powered platform with multiple services. Try WebGPT for AI chat, or explore our other tools!';
+        } else if (message.toLowerCase().includes('tens ai') || message.toLowerCase().includes('tens')) {
+            response = 'Tens AI is an AI-powered platform with multiple services. Try WebGPT for AI chat, or explore our other tools!';
         } else {
             response = `I understand you're asking about "${message}". Try one of our services:\n• WebGPT for AI chat\n• Summarizer for content summaries\n• Translator for language help\n• Or ask me about any specific service!`;
         }
@@ -253,7 +253,7 @@ class TensAISidebar {
     }
 
     generateSummary(content) {
-        // Simple summary generation - in real implementation, this would call AIML Gyan
+        // Simple summary generation - in real implementation, this would call Tens AI
         const sentences = content.split(/[.!?]+/).filter(s => s.trim().length > 10);
         const summary = sentences.slice(0, 3).join('. ') + '.';
         return summary;
