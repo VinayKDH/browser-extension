@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tens AI Sidebar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #ffffff;
+            color: #1f2937;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .header {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .quick-actions .action-card {
+            min-height: 100px;
+        }
+        
+        .quick-actions .action-card h3 {
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+        
+        .quick-actions .action-card p {
+            font-size: 11px;
+            line-height: 1.3;
+        }
+
+        .action-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .action-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .action-card .icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .action-card h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #1f2937;
+        }
+
+        .action-card p {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .chat-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .chat-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #1f2937;
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .chat-input input:focus {
+            border-color: #667eea;
+        }
+
+        .chat-input button {
+            padding: 12px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .chat-input button:hover {
+            background: #5a67d8;
+        }
+
+        .chat-history {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .chat-message {
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .chat-message.user {
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+
+        .chat-message.assistant {
+            background: #667eea;
+            color: white;
+        }
+
+        .features-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .features-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #1f2937;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f3f4f6;
+            font-size: 14px;
+            color: #4b5563;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .footer {
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .footer p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+        }
+
+        .shortcut-hint {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            padding: 8px 12px;
+            margin-top: 12px;
+            text-align: center;
+        }
+
+        .shortcut-hint span {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: 600;
+        }
+
+        /* Responsive design */
+        @media (max-width: 480px) {
+            .quick-actions {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="header">
+            <h1>🤖 AIML Gyan</h1>
+            <p>Your AI assistant for quick access to AIML Gyan</p>
+            <div class="shortcut-hint">
+                Press <span>Alt+Shift+T</span> to open AIML Gyan
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="quick-actions">
+                <div class="action-card" onclick="openWebGPT()">
+                    <span class="icon">🤖</span>
+                    <h3>WebGPT</h3>
+                    <p>AI-powered web search and chat</p>
+                </div>
+                <div class="action-card" onclick="openBusinessApp()">
+                    <span class="icon">💼</span>
+                    <h3>Business Application</h3>
+                    <p>Professional business tools and solutions</p>
+                </div>
+                <div class="action-card" onclick="openTranslator()">
+                    <span class="icon">🌐</span>
+                    <h3>Translator</h3>
+                    <p>Multi-language translation service</p>
+                </div>
+                <div class="action-card" onclick="openOmniQuest()">
+                    <span class="icon">🔍</span>
+                    <h3>OmniQuest</h3>
+                    <p>Advanced search and discovery</p>
+                </div>
+                <div class="action-card" onclick="openMediaStudio()">
+                    <span class="icon">🎨</span>
+                    <h3>MediaStudio</h3>
+                    <p>Create and edit media content</p>
+                </div>
+                <div class="action-card" onclick="openSummarizer()">
+                    <span class="icon">📝</span>
+                    <h3>Summarizer</h3>
+                    <p>AI-powered content summarization</p>
+                </div>
+            </div>
+
+            <div class="chat-section">
+                <h3>💬 Quick Chat</h3>
+                <div class="chat-input">
+                    <input type="text" id="chatInput" placeholder="Ask me anything..." />
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+                <div class="chat-history" id="chatHistory">
+                    <div class="chat-message assistant">
+                        Hi! I'm your Tens AI assistant. How can I help you today?
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-section">
+                <h3>✨ Features</h3>
+                <ul class="feature-list">
+                    <li>🤖 WebGPT - AI web search and chat</li>
+                    <li>💼 Business Application - Professional tools</li>
+                    <li>🌐 Translator - Multi-language support</li>
+                    <li>🔍 OmniQuest - Advanced search</li>
+                    <li>🎨 MediaStudio - Content creation</li>
+                    <li>📝 Summarizer - AI summarization</li>
+                    <li>⌨️ Keyboard shortcuts</li>
+                    <li>📱 Responsive design</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Powered by <a href="https://www.aimlgyan.com" target="_blank" style="color: rgba(255, 255, 255, 0.9);">AIML Gyan</a></p>
+        </div>
+    </div>
+
+    <script src="sidebar.js"></script>
+</body>
+</html>

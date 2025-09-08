@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tens AI Options</title>
+    <style>
+      body { font-family: -apple-system, system-ui, Segoe UI, Roboto, Helvetica, Arial; margin: 24px; max-width: 680px; }
+      label { display: flex; align-items: center; gap: 8px; }
+      input[type="checkbox"] { width: 18px; height: 18px; }
+      .row { margin: 16px 0; }
+    </style>
+  </head>
+  <body>
+    <h2>Tens AI Extension Settings</h2>
+    <div class="row">
+      <label>
+        <input id="injectLauncher" type="checkbox" />
+        Show in-page floating launcher
+      </label>
+    </div>
+    <div class="row">
+      <label>
+        <input id="testMode" type="checkbox" />
+        Enable Test Mode (use built-in dummy page)
+      </label>
+    </div>
+    <div class="row">
+      <button id="save">Save</button>
+      <span id="status"></span>
+    </div>
+    <script src="options.js"></script>
+  </body>
+  </html>
+
+
+

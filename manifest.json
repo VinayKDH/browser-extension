@@ -1,0 +1,64 @@
+{
+  "manifest_version": 3,
+  "name": "AIML Gyan Launcher",
+  "description": "Quickly open and search AIML Gyan from your browser: action button, context menu, shortcut, and in-page launcher.",
+  "version": "1.0.0",
+  "homepage_url": "https://www.aimlgyan.com",
+  "action": {
+    "default_title": "AIML Gyan - Click to open sidebar"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "tabs",
+    "storage",
+    "contextMenus",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.aimlgyan.com/*",
+    "https://aimlgyan.com/*",
+    "http://localhost/*",
+    "http://127.0.0.1/*"
+  ],
+  "commands": {
+    "open-or-focus-tens": {
+      "suggested_key": {
+        "default": "Alt+Shift+T",
+        "mac": "Alt+Shift+T"
+      },
+      "description": "Open or focus AIML Gyan"
+    },
+    "toggle-sidebar": {
+      "suggested_key": {
+        "default": "Alt+Shift+S",
+        "mac": "Alt+Shift+S"
+      },
+      "description": "Toggle AIML Gyan Sidebar"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["sidebar.html", "sidebar.js", "test/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
+
+

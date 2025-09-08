@@ -1,0 +1,18 @@
+{
+  "name": "aimlgyan-browser-extension",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Open and search AIML Gyan quickly from your browser",
+  "license": "MIT",
+  "scripts": {
+    "lint": "web-ext lint",
+    "start": "web-ext run --verbose --no-reload --start-url https://www.aimlgyan.com/ | cat",
+    "build": "web-ext build -o",
+    "test": "node test/run-tests.js",
+    "test:browser": "echo 'Open test/test.html in your browser after loading the extension'"
+  },
+  "devDependencies": {
+    "web-ext": "^7.11.0"
+  }
+}
+

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extension Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .test-button {
+            background: #007cba;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #005a87;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 AIML Gyan Extension Test Page</h1>
+    
+    <div class="test-section">
+        <h2>📋 Test Instructions</h2>
+        <ol>
+            <li><strong>Load the extension</strong> in Chrome</li>
+            <li><strong>Click the extension icon</strong> in the toolbar</li>
+            <li><strong>Check the console</strong> for debug messages</li>
+            <li><strong>Try the test buttons</strong> below</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>🔧 Manual Tests</h2>
+        <button class="test-button" onclick="testContentScript()">Test Content Script</button>
+        <button class="test-button" onclick="testSidebarToggle()">Test Sidebar Toggle</button>
+        <button class="test-button" onclick="testExtensionIcon()">Test Extension Icon</button>
+        <button class="test-button" onclick="clearConsole()">Clear Console</button>
+        
+        <div id="test-results"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>📊 Test Results</h2>
+        <div id="status"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>🐛 Debug Information</h2>
+        <div id="debug-info"></div>
+    </div>
+
+    <script>
+        function addStatus(message, type = 'info') {
+            const statusDiv = document.getElementById('status');
+            const div = document.createElement('div');
+            div.className = `status ${type}`;
+            div.textContent = `${new Date().toLocaleTimeString()}: ${message}`;
+            statusDiv.appendChild(div);
+            console.log(`[${type.toUpperCase()}] ${message}`);
+        }
+
+        function addDebugInfo(info) {
+            const debugDiv = document.getElementById('debug-info');
+            debugDiv.innerHTML = `<pre>${JSON.stringify(info, null, 2)}</pre>`;
+        }
+
+        function testContentScript() {
+            addStatus('Testing content script availability...', 'info');
+            
+            if (typeof chrome !== 'undefined' && chrome.runtime) {
+                addStatus('✅ Chrome extension API available', 'success');
+                
+                // Test if we can send messages
+                try {
+                    chrome.runtime.sendMessage({type: 'PING'}, (response) => {
+                        if (chrome.runtime.lastError) {
+                            addStatus(`❌ Message error: ${chrome.runtime.lastError.message}`, 'error');
+                        } else {
+                            addStatus('✅ Message sent successfully', 'success');
+                        }
+                    });
+                } catch (error) {
+                    addStatus(`❌ Message error: ${error.message}`, 'error');
+                }
+            } else {
+                addStatus('❌ Chrome extension API not available', 'error');
+            }
+        }
+
+        function testSidebarToggle() {
+            addStatus('Testing sidebar toggle...', 'info');
+            
+            if (typeof chrome !== 'undefined' && chrome.runtime) {
+                try {
+                    chrome.runtime.sendMessage({type: 'TOGGLE_SIDEBAR'}, (response) => {
+                        if (chrome.runtime.lastError) {
+                            addStatus(`❌ Sidebar toggle error: ${chrome.runtime.lastError.message}`, 'error');
+                        } else {
+                            addStatus('✅ Sidebar toggle message sent', 'success');
+                        }
+                    });
+                } catch (error) {
+                    addStatus(`❌ Sidebar toggle error: ${error.message}`, 'error');
+                }
+            } else {
+                addStatus('❌ Chrome extension API not available', 'error');
+            }
+        }
+
+        function testExtensionIcon() {
+            addStatus('Testing extension icon click simulation...', 'info');
+            addStatus('Click the extension icon in the toolbar to test', 'info');
+            
+            // Simulate what happens when extension icon is clicked
+            if (typeof chrome !== 'undefined' && chrome.runtime) {
+                try {
+                    chrome.runtime.sendMessage({type: 'TOGGLE_SIDEBAR'}, (response) => {
+                        if (chrome.runtime.lastError) {
+                            addStatus(`❌ Extension icon test error: ${chrome.runtime.lastError.message}`, 'error');
+                        } else {
+                            addStatus('✅ Extension icon test message sent', 'success');
+                        }
+                    });
+                } catch (error) {
+                    addStatus(`❌ Extension icon test error: ${error.message}`, 'error');
+                }
+            }
+        }
+
+        function clearConsole() {
+            console.clear();
+            document.getElementById('status').innerHTML = '';
+            addStatus('Console cleared', 'info');
+        }
+
+        // Auto-run initial tests
+        window.addEventListener('load', () => {
+            addStatus('Page loaded, running initial tests...', 'info');
+            
+            // Collect debug info
+            const debugInfo = {
+                userAgent: navigator.userAgent,
+                url: window.location.href,
+                chrome: typeof chrome !== 'undefined',
+                chromeRuntime: typeof chrome !== 'undefined' && typeof chrome.runtime !== 'undefined',
+                timestamp: new Date().toISOString()
+            };
+            
+            addDebugInfo(debugInfo);
+            
+            // Test content script
+            setTimeout(() => {
+                testContentScript();
+            }, 1000);
+        });
+
+        // Listen for messages from content script
+        if (typeof chrome !== 'undefined' && chrome.runtime) {
+            chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+                addStatus(`📨 Received message: ${JSON.stringify(message)}`, 'info');
+                sendResponse({received: true});
+            });
+        }
+    </script>
+</body>
+</html>
